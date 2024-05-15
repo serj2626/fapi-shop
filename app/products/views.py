@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from .crud import ProductCRUD, CategoryCRUD
 
 
-router = APIRouter(tags=['Продукты'])
+router = APIRouter(tags=["Продукты"])
 
 
 @router.get("/")

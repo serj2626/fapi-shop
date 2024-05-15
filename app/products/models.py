@@ -15,9 +15,7 @@ class Product(Base):
     price: Mapped[int] = mapped_column(nullable=False)
     quantity: Mapped[int] = mapped_column(nullable=False)
     description: Mapped[str] = mapped_column(nullable=True)
-    category_id: Mapped[int] = mapped_column(ForeignKey('categorys.id'))
+    category_id: Mapped[int] = mapped_column(ForeignKey("categorys.id"))
 
     def __repr__(self):
         return f"Product {self.name}"
-
- 
