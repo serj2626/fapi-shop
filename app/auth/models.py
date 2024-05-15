@@ -1,6 +1,7 @@
 from app import Base
 from sqlalchemy.orm import Mapped, mapped_column
 from enum import Enum
+from sqlalchemy import String, Integer
 
 
 class Role(str, Enum):
@@ -9,11 +10,10 @@ class Role(str, Enum):
 
 
 class User(Base):
-
-    name: Mapped[str] = mapped_column(nullable=False)
-    email: Mapped[str] = mapped_column(nullable=False)
-    role: Mapped[Role] = mapped_column(nullable=False, default=Role.user)
-    password: Mapped[str] = mapped_column(nullable=False)
+    username: Mapped[str] = mapped_column(
+        String(32), unique=True, nullable=False)
+    email: Mapped[str] = mapped_column(
+        String(33), nullable=False, unique=True)
 
     def __repr__(self):
-        return f"User {self.name}"
+        return f"User {self.username}"
